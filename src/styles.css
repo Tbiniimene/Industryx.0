@@ -1,0 +1,151 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~ng-wizard/themes/ng_wizard.min.css';
+
+
+/* NG-ZORRO. */
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+@import '~ngx-toastr/toastr';
+ 
+
+/*
+.ant-select-show-search.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    cursor: text;
+}
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all .3s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
+    height: 32px;
+    padding: 0 11px;
+}
+.ant-select-single .ant-select-selector {
+    display: flex;
+}
+.ant-select {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: rgba(0,0,0,.65);
+    font-size: 14px;
+    font-variant: tabular-nums;
+    line-height: 1.5715;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    position: relative;
+    cursor: pointer;
+}
+
+
+.ant-select-multiple .ant-select-selection-search-input, .ant-select-multiple .ant-select-selection-search-mirror, .ant-statistic-content, .ant-steps-item-icon, body {
+    font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
+.ant-alert, .ant-anchor {
+    font-variant: tabular-nums;
+}
+.ant-alert {
+    color: rgba(0,0,0,.65);
+    margin: 0;
+    font-variant: tabular-nums;
+}
+
+.ant-carousel .slick-slider, .cdk-overlay-backdrop {
+    -webkit-tap-highlight-color: transparent;
+}
+.ant-select-single .ant-select-selector .ant-select-selection-item::after, .ant-select-single .ant-select-selector .ant-select-selection-placeholder::after, .ant-select-single .ant-select-selector::after {
+    display: inline-block;
+    width: 0;
+    visibility: hidden;
+    content: '\a0';
+}
+selection {
+    color: #fff;
+    background: #1890ff;
+}
+
+*/
+/* NG-WIZARD CUSTOMIZED */
+.ng-wizard-theme-arrows{border-radius:5px;border:1px solid #ddd}
+.ng-wizard-theme-arrows>.ng-wizard-container{min-height:200px}
+.ng-wizard-theme-arrows .step-content{padding:0 10px;border:0 solid #d4d4d4;background-color:#fff;text-align:left}
+.ng-wizard-theme-arrows .ng-wizard-toolbar{padding:10px;margin-bottom:0!important}
+.ng-wizard-theme-arrows>ul.step-anchor{border:0;border-bottom:1px solid #ddd;padding:0;background:#f5f5f5;border-radius:0;border-top-right-radius:5px;list-style:none;overflow:hidden}.ng-wizard-theme-arrows>ul.step-anchor li+li:before{padding:0}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a,.ng-wizard-theme-arrows>ul.step-anchor>li>a:hover{color:#bbb;text-decoration:none;padding:10px 0 10px 45px;position:relative;display:block;border:0!important;border-radius:0;outline-style:none;background:#f5f5f5}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a:after{content:" ";display:block;width:0;height:0;border-top:50px solid transparent;border-bottom:50px solid transparent;border-left:30px solid #f5f5f5;position:absolute;top:50%;margin-top:-50px;left:100%;z-index:2}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a:before{content:" ";display:block;width:0;height:0;border-top:50px solid transparent;border-bottom:50px solid transparent;border-left:30px solid #ddd;position:absolute;top:50%;margin-top:-50px;margin-left:1px;left:100%;z-index:1}
+.ng-wizard-theme-arrows>ul.step-anchor>li:first-child>a{padding-left:15px}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a:hover{color:#bbb;text-decoration:none;outline-style:none;background:#f5f5f5;border-color:#f5f5f5}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a:hover:after{border-left-color:#f5f5f5}
+.ng-wizard-theme-arrows>ul.step-anchor>li.clickable>a:hover{color:#4285f4!important;background:#46b8da!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.active>a{border-color:#17a185!important;color:#fff!important;background:#17a185!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.active>a:after{border-left:30px solid #17a185!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.done>a{border-color:#b1dfbb!important;color:#fff!important;background:#b1dfbb!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.done>a:after{border-left:30px solid #b1dfbb}
+.ng-wizard-theme-arrows>ul.step-anchor>li.danger>a{border-color:#d9534f!important;color:#fff!important;background:#d9534f!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.danger>a:after{border-left:30px solid #d9534f!important}
+.ng-wizard-theme-arrows>ul.step-anchor>li.disabled>a,.ng-wizard-theme-arrows>ul.step-anchor>li.disabled>a:hover{color:#eee!important}@media screen and (max-width:768px){ .ant-select-show-search.ant-select-multiple .ant-select-selector {
+    cursor: text;
+    width: 250px;
+} .ng-wizard-theme-arrows>ul.step-anchor{border:0;background:#ddd!important}
+.ng-wizard-theme-arrows>.nav-tabs>li{float:none!important;margin-bottom:0}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a,.ng-wizard-theme-arrows>ul.step-anchor>li>a:hover{padding-left:15px;margin-right:0;margin-bottom:1px}
+.ng-wizard-theme-arrows>ul.step-anchor>li>a:after,.ng-wizard-theme-arrows>ul.step-anchor>li>a:before{display:none}}
+.ng-wizard-theme-arrows::before{border:10px solid #f3f3f3;border-top:10px solid #17a185}
+
+.ng-wizard > .actions > ul > li.disabled > a {
+    background: white;
+  }
+  .btn-group>.btn, .btn-group-vertical>.btn:disabled {
+   /* cursor: not-allowed;
+    pointer-events:none;*/
+    position: relative;
+    float: left;
+    background: transparent;
+    font-size: 0;
+}
+.finishbtn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    background-color: #1ab394;
+        border-color: #1ab394;
+        color: #FFFFFF;
+        font-size: 14px;
+        padding: 10px 20px;
+        font-weight: 600;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin-left: 620px;
+    
+    }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.prev{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+.next{
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    width: 95,34px;
+}
+.finish{
+    background-color: #1ab394;
+        border-color: #1ab394;
+        color: #FFFFFF;
+    width: 95,34px;
+}
+/* HOME PAGE */
+
+
+

@@ -1,0 +1,623 @@
+<div>
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-default navbar-fixed-top" (scroll)="onWindowScroll($event);" role="navigation">
+            <div class="container">
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="page-scroll" href="#page-top">Home</a></li>
+                        <li><a class="page-scroll" href="#features">Features</a></li>
+                        <li><a class="page-scroll" href="#team">Team</a></li>
+                        <li><a class="page-scroll" href="#workflow">Workflow</a></li>
+                        <li><a class="page-scroll" href="#testimonials">Testimonials</a></li>
+                        <li><a class="page-scroll" href="#pricing">Pricing</a></li>
+                        <li><a routerLink='/blog' routerLinkActive="active">Blog</a></li>
+                        <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!--START-->
+    <div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#inSlider" data-slide-to="0" class="active"></li>
+            <li data-target="#inSlider" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"><div class="carousel-caption blank">
+
+                            <h1 class="titlestyle">REGISTER FOR FREE<br /></h1>
+    
+                        </div></div>
+                    </div>
+                  <!--  <div class="carousel-image wow zoomIn">
+                        <img src="assets/img/laptop.png" alt="laptop"/>
+                    </div>-->
+                </div>
+                <!-- Set background for slide in css -->
+                <div class="header-back one"></div>
+    
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4"></div>
+                        <div class="col-lg-4"><div class="carousel-caption blank">
+
+                            <h1 class="titlestyle">REGISTER FOR FREE<br /></h1>
+    
+                        </div></div>
+                    </div>
+                </div>
+                <!-- Set background for slide in css -->
+                <div class="header-back two"></div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- END HERE-->
+    
+</div>
+<div>
+    <br />
+    <br />
+    <br />
+
+</div>
+<br />
+<br />
+<br />
+<div class="container">
+    <div class="form-group">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <!--<form [formGroup]="registerForm" (ngSubmit)="onSubmit()"></form>-->
+            <ng-wizard  [config]="config" (stepChanged)="stepChanged($event)" >
+                <ng-wizard-step  [title]="'Step 1'" [description]="'Personal Information'">
+                    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <span class="tt">Personal Information</span>
+                            </div></div>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group ">
+                                    <label class="l">First Name*</label>
+                                    <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+                                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                                    </div>
+                                </div>
+                               <!-- <div *ngIf="f.controls['firstname'].invalid && (f.controls['firstname'].dirty || f.controls['firstname'].touched)" class="alert alert-danger">
+                                    <div *ngIf="f.controls['firstname'].errors.required">
+                                    Name is required.
+                                  </div>
+                                </div>-->
+                               
+                                <div class="form-group ">
+                                    <label class="l">Last Name*</label>
+                                    <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+                                    <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                                        <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="l">Email*</label>
+                                    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+                                <div class="form-group ">
+                                    <label class="l">Phone Number*</label>
+                                    <input type="text" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+                                    <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                                        <div *ngIf="f.phone.errors.required">Phone number is required</div>
+                                        <div *ngIf="f.phone.errors.minlength">Phone number must be at least 8 characters</div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+
+                        </div>
+                        <div class="row"><br/>
+                            <br/></div>
+                            <div class="row">
+                                <div class="col-sm-2">
+                                
+                        <button *ngIf="!showprev" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev " (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                        <button *ngIf="showprev" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev disabled" (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                    </div>
+                    <div class="col-lg-8"></div>
+                        <div class="col-sm-2">
+                        <button *ngIf="shownext" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                        <button *ngIf="!shownext" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next disabled" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                    </div> </div>
+                    </fieldset>
+                 </form>
+                </ng-wizard-step>
+           
+                <ng-wizard-step [title]="'Step 2'" [description]="'Company Information'">
+                    <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <span class="tt">Company Information</span>
+
+                            </div></div>
+                        <br />
+                        <br />
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <div class="form-group col-5">
+                                    <label class="l">Company Name*</label>
+                                    <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && fc.Name.errors }" />
+                                    <div *ngIf="submitted && fc.Name.errors" class="invalid-feedback">
+                                        <div *ngIf="fc.Name.errors.required">Company Name is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-5">
+                                    <label class="l">Field of work* </label>
+                                    <input type="text" formControlName="field" class="form-control" [ngClass]="{ 'is-invalid': submitted && fc.field.errors }" />
+                                    <div *ngIf="submitted && fc.field.errors" class="invalid-feedback">
+                                        <div *ngIf="fc.field.errors.required">Field of work is required</div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group col-5">
+                                    <label class="l">Country* </label>
+                                    <input type="text" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && fc.country.errors }" />
+                                    <div *ngIf="submitted && fc.country.errors" class="invalid-feedback">
+                                        <div *ngIf="fc.country.errors.required">Country is required</div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-5">
+                                    <label class="l">Region* </label>
+                                    <input type="text" formControlName="region" class="form-control" [ngClass]="{ 'is-invalid': submitted && fc.region.errors }" />
+                                    <div *ngIf="submitted && fc.region.errors" class="invalid-feedback">
+                                        <div *ngIf="fc.region.errors.required">Region is required</div>
+                                    </div>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                            <div class="row">
+                               
+                                <div class=" col-lg-12 col-sm-6">
+                                    <label class="l">Select product* </label>
+                                    <ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                        [data]="Products" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)" class="select">
+                    </ng-multiselect-dropdown>
+                                      <br />
+                                      <br />
+                                     
+                        </div>
+                    </div>
+                        <br/>
+                        <div [hidden]="!useformula">
+                            <form [formGroup]="tscsForm" (ngSubmit)="onSubmit()">
+
+                                <fieldset>
+                                  
+            
+                                    <div class="form-group form-check">
+                                        <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && ftc.acceptTerms.errors }" />
+                                        <label for="acceptTerms" class="form-check-label">Accept <a href="#">Terms and conditions.</a></label>
+                                        <div *ngIf=" submitted && ftc.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                                    </div>
+            
+                                  
+                                 
+                        <div class="row">
+                            <div class="col-lg-2 col-sm-2">
+        
+                                <button *ngIf="!showprev" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev " (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                                </div>
+                            <div class="col-lg-8 col-sm"></div>
+                            <div class="col-lg-2 col-sm-2">
+                                <button  _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next finish" (click)="finish()">Finish <i class="fa fa-check"></i></button>
+            
+                            </div>
+                        </div>
+                                </fieldset>
+                               
+                               </form>
+                        </div>
+                     
+                        <div class="row" [hidden]="useformula">
+                            <div class="col-sm-2">
+                            
+                    <button *ngIf="!showprev" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev " (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                    <button *ngIf="showprev" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev disabled" (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                </div>
+                <div class="col-lg-8"></div>
+                    <div class="col-sm-2">
+                    <button *ngIf="shownext" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                    <button *ngIf="!shownext" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next disabled" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                </div> </div>
+                    </fieldset>
+                    </form>
+                </ng-wizard-step>
+                
+                <ng-wizard-step [title]="'Step 3'" [description]="'Chose your Formula   '">
+                   
+
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <span class="tt">Chose formula</span>
+
+                            </div></div>
+
+                        <br />
+                        <br />
+                        <br />
+                      
+
+
+
+                        <div class="row">
+                            <div class="col-lg-10">
+
+                   
+                        <nz-select nzShowSearch nzAllowClear nzMode="multiple" [nzDropdownRender]="renderTemplate"
+                            nzPlaceHolder="Select your formulas" [(ngModel)]="listOfSelectedValue">
+                            <nz-option *ngFor="let option of listOfOption" [nzLabel]="option" [nzValue]="option"
+                                [nzHide]="!isNotSelected(option)"></nz-option>
+                        </nz-select>
+                        <ng-template #renderTemplate>
+                            <nz-divider></nz-divider>
+                            <div class="c">
+                                <input type="text" nz-input #inputElement />
+                                <a class="add-item" (click)="addItem(inputElement)"> Add
+                                    new Formula</a>
+                            </div>
+                        </ng-template>
+                        <div *ngIf="emptylist" class="invalid-feedback">Formula is required</div>
+                    </div>
+
+                    </div>
+
+                        <!--<ng-multiselect-dropdown [placeholder]="'custom placeholder'" [settings]="dropdownSettings"
+                        [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                        (onSelectAll)="onSelectAll($event)">
+                    </ng-multiselect-dropdown>-->
+                        <br />
+                        <br />
+                        <div cdkDropListGroup [hidden]="!newitem">
+                            <div class="example-container" [hidden]="params">
+                                <label class="l">Parameters</label>
+
+                                
+
+                                <div cdkDropList [cdkDropListData]="items" cdkDropListOrientation="horizontal" class="example-list-horizental"
+                                    cdkDropListSortingDisabled (cdkDropListDropped)="dropop($event)">
+                                    <div class="example-box-horizental" *ngFor="let item of items" cdkDrag>{{item}}</div>
+                                </div>
+                            </div>
+
+                            <div class="example-container" [hidden]="hiddenparam">
+                                <label class="l">Parameters</label>
+                            <div cdkDropList cdkDropListOrientation="horizontal" class="example-list-horizental" (cdkDropListDropped)="drop($event)">
+                                <div
+                                class="example-box-horizental"
+                                  *ngFor="let item of items"
+                                  cdkDrag
+                                  [cdkDragDisabled]="true">{{item}}</div>
+                              </div>
+                            </div>
+
+                            <div class="example-container" [hidden]="!unite">
+                                <label class="l">Unites</label>
+                                <div cdkDropList [cdkDropListData]="unities" cdkDropListOrientation="horizontal" class="example-list-horizental"
+                                    cdkDropListSortingDisabled (cdkDropListDropped)="dropop($event)">
+                                    <div class="example-box-horizental" *ngFor="let item of unities" cdkDrag>{{item}}</div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-lg-8 nopadding"  > 
+                            <div class="example-container" [hidden]="!operations">
+                                <label class="l">Operations</label>
+
+                                <div cdkDropList [cdkDropListData]="ops" cdkDropListOrientation="horizontal" class="example-list-horizental" cdkDropListSortingDisabled
+                                    (cdkDropListDropped)="dropop($event)">
+                                    <div class="example-box-horizental" *ngFor="let item of ops" cdkDrag>{{item}}</div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-4 nopadding"> 
+                            <div class="example-container" [hidden]="!operations">
+                                <label class="l">parentheses</label>
+                                <div cdkDropList [cdkDropListData]="parenthesies" cdkDropListOrientation="horizontal" class="example-list-horizental-p" cdkDropListSortingDisabled
+                                    (cdkDropListDropped)="dropop($event)">
+                                    <div class="example-box-horizental" *ngFor="let item of parenthesies" cdkDrag>{{item}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                            <div class="row">
+                                <div> <br /></div>
+                            </div>
+                           <div class="row ">
+                            <div class="col-lg-8 nopadding"  > 
+                                <div class="example-container" [hidden]="operations" >
+                                    <label class="l">Operations</label>
+                                    <div cdkDropList cdkDropListOrientation="horizontal" class="example-list-horizental" (cdkDropListDropped)="dropop($event)">
+                                    <div
+                                    class="example-box-horizental"
+                                      *ngFor="let item of ops"
+                                      cdkDrag
+                                      [cdkDragDisabled]="true">{{item}}</div>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 nopadding"> 
+                                <div class="example-container" [hidden]="operations">
+                                    <label class="l">parentheses</label>
+                                    <div cdkDropList [cdkDropListData]="parenthesies" cdkDropListOrientation="horizontal" class="example-list-horizental-p" cdkDropListSortingDisabled
+                                        (cdkDropListDropped)="dropop($event)">
+                                        <div class="example-box-horizental" *ngFor="let item of parenthesies" cdkDrag>{{item}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div> <br /></div>
+                        </div>
+                           
+                            <div class="example-formula" >
+                                
+                                <label class="l">
+                                New Formula</label>
+                                <div cdkDropList [cdkDropListData]="basket" cdkDropListOrientation="horizontal" class="example-list-horizental"
+                                    (cdkDropListDropped)="drop($event)">
+                                    <div class="example-box-horizental" *ngFor="let item of basket" cdkDrag>{{item}} 
+                                        <button class="btn" (click)="removeme($event,item)"><i class="fa fa-trash"></i></button>
+                                    </div>
+                                </div>
+                                <div *ngIf="basketempty" class="invalid-feedback">Formula is required</div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6"></div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-info dangerbtn" type="button" (click)="ResetFormula()">
+                                        Reset Formula 
+                                     </button>
+                                </div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-primary btn-sm formulabtn" type="button" (click)="addFormula()">
+                                        Add Formula 
+                                     </button>
+                                </div>
+                                <div class="col-lg-2">
+                                    <button class="btn btn-danger dangerbtn" type="button" (click)="cancel()">
+                                        Cancel Add
+                                     </button>
+                                </div></div>
+                           
+                                    <div class="row"></div>
+                        </div>
+                        
+                        <span></span>
+                       
+                        <!-- 
+                            FORM CONTROL 
+                            <form [formGroup]="f">
+                        <label class="l">Custom Add your own formula</label>
+                        <input type="text" class="form-control required" formControlName="formula">
+
+                        <div *ngIf="!formula.invalid">
+                            Follow this exemple "KOSU" = "number of employees" * "number of hours per employee" /
+                            "number of good parts"
+                        </div>
+
+                    </form>-->
+                    
+                       <div class="row">
+                            <form [formGroup]="formulaForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group col-lg-6">
+                             
+                                <label class="l">Users* </label>
+                                <input type="text" formControlName="users" class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.users.errors }" />
+                                <div *ngIf="submitted && ff.users.errors" class="invalid-feedback">
+                                    <div *ngIf="ff.users.errors.required">Users are required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="l">sensors* </label>
+                                <input type="text" formControlName="sensors" class="form-control" [ngClass]="{ 'is-invalid': submitted && ff.sensors.errors }" />
+                                <div *ngIf="submitted && ff.sensors.errors" class="invalid-feedback">
+                                    <div *ngIf="ff.sensors.errors.required">Sensors is required</div>
+                                </div>
+                            </div>
+                        </form>
+                        </div>
+                  
+                    <br/>
+                    <br/>
+                    <div [hidden]="useformula">
+                        <form [formGroup]="tscsForm" (ngSubmit)="onSubmit()">
+
+                            <fieldset>
+                              
+        
+                                <div class="form-group form-check">
+                                    <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && ftc.acceptTerms.errors }" />
+                                    <label for="acceptTerms" class="form-check-label">Accept <a href="#">Terms and conditions.</a></label>
+                                    <div *ngIf=" submitted && ftc.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                                </div>
+        
+                              
+                             
+                    <div class="row">
+                        <div class="col-lg-2 col-sm-2">
+        
+                            <button *ngIf="!showprev" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev " (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                            </div>
+                        <div class="col-lg-8 col-sm"></div>
+                        <div class="col-lg-2 col-sm-2">
+                            <button  _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next finish" (click)="finish()">Finish <i class="fa fa-check"></i></button>
+        
+                        </div>
+                    </div>
+                            </fieldset>
+                           
+                           </form>
+                    </div>
+ 
+                    </fieldset>
+                    
+                </ng-wizard-step>
+
+
+<!--
+                <ng-wizard-step [title]="'Step 4'" [description]="'Terms and Conditions'">
+                    
+                    <form [formGroup]="tscsForm" (ngSubmit)="onSubmit()">
+
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-lg-4"></div>
+                            <div class="col-lg-4">
+                                <span class="tt">Terms & conditions</span>
+
+                            </div></div>
+
+                        <div class="form-group form-check">
+                            <input type="checkbox" formControlName="acceptTerms" id="acceptTerms" class="form-check-input" [ngClass]="{ 'is-invalid': submitted && ftc.acceptTerms.errors }" />
+                            <label for="acceptTerms" class="form-check-label">Accept <a href="#">Terms and conditions.</a></label>
+                            <div *ngIf=" submitted && ftc.acceptTerms.errors" class="invalid-feedback">Accept Ts & Cs is required</div>
+                        </div>
+
+                        <div class="g-recaptcha" data-sitekey="6LeoD7IZAAAAAG0DqO-1w-6Fh42Pl7olfJ2M7y2J"></div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-2">
+                            
+                    <button *ngIf="!showprev" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev " (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                    <button *ngIf="showprev" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev prev disabled" (click)="showPreviousStep($event)"><i class="fa fa-arrow-circle-o-left"></i> Previous </button>
+                </div>
+                <div class="col-lg-8"></div>
+                    <div class="col-sm-2">
+                    <button *ngIf="shownext" _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                    <button *ngIf="!shownext" _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next next disabled" (click)="showNextStep($event)">Next <i class="fa fa-arrow-circle-o-right"></i></button>
+                </div> 
+            </div>
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+            <div class="row"><br/></div>
+            <div class="row">
+                <div class="col-lg-10"></div>
+                <div class="col-lg-2">
+                    <button  _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next finish" (click)="finish()">Finish <i class="fa fa-check"></i></button>
+
+                </div>
+            </div>
+                    </fieldset>
+                   
+                   </form>
+
+                </ng-wizard-step>
+
+            -->
+                
+            </ng-wizard>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+<!--
+
+    
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" aria-label="Close" (click)="closeAlert()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+</div>
+
+       RECAPTCHA <div class="recaptcha">
+                            <re-captcha (resolved)="resolved($event)"
+                                siteKeys="6LeoD7IZAAAAAG0DqO-1w-6Fh42Pl7olfJ2M7y2J">
+                            </re-captcha>
+
+                        </div>
+    
+<button _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev disabled">Previous</button>
+<button _ngcontent-gdl-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next" (click)="showNextStep($event)">Next</button>
+<button _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-prev">Previous</button>
+<button _ngcontent-ppj-c53="" type="button" ng-reflect-ng-class="btn btn-secondary ng-wizard-bt" class="ng-star-inserted btn btn-secondary ng-wizard-btn-next disabled">Next</button>
+
+    <ngb-alert >hello</ngb-alert>
+
+    <div cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="dropME($event)">
+    <div class="example-box" *ngFor="let timePeriod of timePeriods" cdkDrag>{{timePeriod}}</div>
+  </div>-->
+
+<!--<mat-google-maps-autocomplete [appearance]="appearance.OUTLINE"
+                              (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                              (onLocationSelected)="onLocationSelected($event)">
+      </mat-google-maps-autocomplete>-->
+
+<!-- api key=  AIzaSyAGJjoDaGjiWqDrSC_CxlutwZujdj9rjGw  -->
+
+<!--MAP-->
+<!--<agm-map [latitude]="lat" [longitude]="lng" [disableDefaultUI]="false" [zoomControl]="false">
+
+    <agm-circle [latitude]="lat + 0.3" [longitude]="lng" [radius]="5000" [fillColor]="'red'" [circleDraggable]="true"
+        [editable]="true">
+    </agm-circle>
+
+</agm-map>-->
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

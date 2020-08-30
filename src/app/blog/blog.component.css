@@ -1,0 +1,26 @@
+.header-back.one {
+    background: url('../../assets/img/robot.jpg') 50% 0 no-repeat;
+  }
+  .header-back.two {
+    background: url('../../assets/img/articlee.jpg') 10% 0 no-repeat;
+  }
+
+  .registerbtn{
+    margin-top: 15px;
+}
+
+.titlestyle {
+    line-height: 1.2;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 38px;
+    text-transform: uppercase;
+    text-shadow: none;
+    letter-spacing: -1.5px;
+    color: #fff;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
